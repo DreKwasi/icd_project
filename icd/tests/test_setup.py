@@ -8,14 +8,13 @@ class TestSetUP(APITestCase):
     def setUp(self):
         self.codeslisturl = reverse('codes')
         self.sample_data = {"category_codes": "A001",
-                    "diagnosis_codes": "12",
-                    "full_code": "A122",
-                    "abbrev_description": "Malaria",
-                    "full_description": "Cold",
-                    "category_title": "Something",
-                    "version": 10
-                        }
-        pass
+                            "diagnosis_codes": "12",
+                            "full_code": "A122",
+                            "abbrev_description": "Malaria",
+                            "full_description": "Cold",
+                            "category_title": "Something",
+                            "version": 10
+                            }
     
     def createCode(self):
         response = self.client.post(reverse('codes'), self.sample_data)
