@@ -10,22 +10,19 @@ These instructions will cover usage information and for the docker container
 ### Prerequisities
 
 
-In order to run this container you'll need docker installed.
+In order to run this container you'll need docker and postgres installed.
 
 * [Windows](https://docs.docker.com/windows/started)
 * [OS X](https://docs.docker.com/mac/started/)
 * [Linux](https://docs.docker.com/linux/started/)
+* [Postgres](https://www.postgresql.org/download/)
 
 ### Usage
 
 #### Container Parameters
 
-Parameter for building image
-```shell
-docker-compose build
-```
-
-Parameter for running web client app on localhost(http://127.0.0.1:8000/api/)
+For running web client app on localhost(http://127.0.0.1:8000/api/) input the command below
+to build images and containers needed and run the localhost
 
 ```shell
 docker-compose up
@@ -45,6 +42,6 @@ docker-compose exec psql-U postgres
 
 ## Built With
 
+* python
 * django
 * django-rest framework
-* python
