@@ -18,11 +18,11 @@ In order to run this container you'll need docker and postgres installed.
 
 ### Setting Up Postgres Database
 Running this app will require a local database connection to Postgres. 
-Steps for Setup
-* After Cloning the Repository navigate to the docker-compose.yml
-* Adjust the "db(service) environment" to your postgres settings i.e POSTGRES_DB, POSTGRES_USER and POSTGRES_PASSWORD
+
+* Cloning the Repository and navigate to the docker-compose.yml
+* Adjust the "db(service) environment" to your postgres settings for POSTGRES_DB, POSTGRES_USER and POSTGRES_PASSWORD
 * Afterwards, navigate to the core/settings folder in your root directory
-* For the "DATABASES" dictionary adjust the fields as before for name (same as POSTGRES_DB), user, password. (DO NOT EDIT THE HOST OR PORT)
+* Adjust the DATABASE section for name (same as POSTGRES_DB), user and password.
 
 This should get you up to date and started
 
@@ -48,6 +48,14 @@ Getting the postgres shell started
 docker-compose exec psql-U postgres
 ```
 
+## Testing
+Run the command below
+
+```shell
+docker exec -it django_container /bin/bash
+python manage.py test
+```
+
 ## Getting Started with endpoints
 * All routes for endpoints are available at http://127.0.0.1:8000/api
 * icd.csv is a CSV file that contains ~10000 rows of data which can be uploaded using the endpoint; http://127.0.0.1:8000/api/codes/fileupload
@@ -61,4 +69,7 @@ data is uploaded as a CSV
 * python
 * django
 * django-rest framework
+
+## Acknowledgements
+mpharma
 
