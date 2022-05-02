@@ -1,42 +1,50 @@
-# ICD_Codes (http://127.0.0.1:8000/api/)
+# ICD_Codes
 
-This project involves developing an API to enable the user View/Edit/Delete and even Upload Data on the ICD Codes. This project runs in a docker container
-and hence will require a running version of docker installed.
+This project involves developing a RESTful API that can allows the user
+to utilize an internationally recognized set of diagnosis codes.
+
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+These instructions will cover usage information and for the docker container 
 
-### Prerequisites
+### Prerequisities
 
+
+In order to run this container you'll need docker installed.
+
+* [Windows](https://docs.docker.com/windows/started)
+* [OS X](https://docs.docker.com/mac/started/)
+* [Linux](https://docs.docker.com/linux/started/)
+
+### Usage
+
+#### Container Parameters
+
+Parameter for building image
+```shell
+docker-compose build
 ```
-install docker
-good internet to allow for installation of other components in the docker image and containers
 
+Parameter for running web client app on localhost(http://127.0.0.1:8000/api/)
+
+```shell
+docker-compose up
 ```
 
-### Installing
+Getting the python shell started
 
-```
-navigate to root directory of your cloned folder
-run cmd/shell (ensure docker is installed)
-run docker-compose up to launch a local version of the API after installation of the necessary containers are made
-run python manage.py runserver to run the web app
+```shell
+docker exec -it django_container /bin/bash
 ```
 
-## Running the tests
-```
-execute docker exec -it django_container /bin/bash to launch an interactive shell of the container in your shell.
-ensure this is not the same shell you use for running the web app
+Getting the postgres shell started
+
+```shell
+docker-compose exec psql-U postgres
 ```
 
 ## Built With
 
-* django - The web framework used
-* django-rest framework - The REST Framework for Endpoints
-* docker - Container management
-
-
-## Authors
-
-* **Andrews Asamoah Boateng** 
-
+* django
+* django-rest framework
+* python
