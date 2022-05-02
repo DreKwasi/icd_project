@@ -1,4 +1,4 @@
-# ICD_Codes
+# ICD_Codes_Project
 
 This project involves developing a RESTful API that can allows the user
 to utilize an internationally recognized set of diagnosis codes.
