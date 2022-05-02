@@ -88,10 +88,11 @@ class CodesUploadAPIView(generics.CreateAPIView):
 
         # Sending an email using a dummy gmail account to a specified account
         email = EmailMessage(
-                "Upload of Category Codes",
-                "Upload Completed",
+                "Upload of ICD Codes",
+                f"Thank You for Using the ICD REST Api \nUpload Completed for {df.shape[0]} ICD Codes \
+                     Vist http://127.0.0.1:8000/api/codes/ to View or Add Additional Codes",
                 'mpharmatakehome@gmail.com',
-                ['andrewsboateng137@gmail.com']
+                ['andrewsboateng137@gmail.com', 'mpharmatakehome@gmail.com']
             )
         email.send()
 
