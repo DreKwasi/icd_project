@@ -7,5 +7,5 @@ urlpatterns = [
     path("codes/", views.CodesListCreateAPIView.as_view(), name='codes'), 
     path("codes/<int:id>/", views.CodesDetailAPIView.as_view(), name='getCode'),
     path("codes/<int:id>/delete", views.CodesDeleteAPIView.as_view(), name='deleteCode'),
-    path("codes/fileupload", views.CodesUploadAPIView.as_view(), name='fileupload')
+    path("codes/fileupload", views.CodesUploadAPIView.as_view(), name='fileUpload')
 ]

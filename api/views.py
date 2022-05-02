@@ -1,14 +1,14 @@
-import numpy as np 
-import pandas as pd
-from icd.models import Codes
-from rest_framework import generics, mixins, status
-from rest_framework.decorators import api_view
-from rest_framework.pagination import PageNumberPagination
-from rest_framework.response import Response
-from django.core.mail import EmailMessage
-from icd.helper import BulkCreateManager
+import numpy as np #Numpy object to handle arrays
+import pandas as pd #Pandas for handling importst
+from icd.models import Codes #Codes table for exporting and importing data
+from rest_framework import generics, mixins, status #generics/mixins for API Views and status for the Responses
+from rest_framework.decorators import api_view #decorator to handle API views on functions
+from rest_framework.pagination import PageNumberPagination #For customizing Pagination with affecting the whole app
+from rest_framework.response import Response #For Handling responses of Views
+from django.core.mail import EmailMessage #For sending emails via SMTP
+from icd.helper import BulkCreateManager #Helper Class for handling bulk inserts of data
 
-from .serializers import CodesSerializer, FileUploadSerializer
+from .serializers import CodesSerializer, FileUploadSerializer #serializers for exporting and importing db data
 
 
 # View the Returns all Endpoints for the Various Views

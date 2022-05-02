@@ -1,5 +1,5 @@
-from rest_framework import serializers
-from icd.models import Codes
+from rest_framework import serializers #serializer function to handle json serialization of exported/imported data
+from icd.models import Codes #Importing Codes Model for Serialization
 
 # creating a class for serializing the Codes model to enable interaction with the Model
 class CodesSerializer(serializers.ModelSerializer):

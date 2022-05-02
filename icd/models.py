@@ -11,6 +11,7 @@ class Codes(models.Model):
     category_title = models.TextField(blank=True, null=True)
     version = models.SmallIntegerField(default=10)
 
+    # Overriding the string form of the object when called to display category codes instead
     def __str__(self):
         return self.category_codes
 

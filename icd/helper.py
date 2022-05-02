@@ -1,5 +1,5 @@
-from collections import defaultdict
-from django.apps import apps
+from collections import defaultdict #For creating queues when adding model objects
+from django.apps import apps #For getting model without importing the model directly
 
 
 class BulkCreateManager(object):
