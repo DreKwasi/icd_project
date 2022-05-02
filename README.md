@@ -5,7 +5,7 @@ to utilize an internationally recognized set of diagnosis codes.
 
 ## Getting Started with Setup
 
-These instructions will cover usage information and for the docker container 
+These instructions will cover usage information for postgres database setup and the docker container 
 
 ### Prerequisities
 
