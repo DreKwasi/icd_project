@@ -10,6 +10,12 @@ class Codes(models.Model):
     full_description = models.TextField(blank=True, null=True)
     category_title = models.TextField(blank=True, null=True)
     version = models.SmallIntegerField(default=10)
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    # Defining a meta class to show order of queryset 
+    class Meta:
+        ordering = ['-updated', '-created']
 
     # Overriding the string form of the object when called to display category codes instead
     def __str__(self):

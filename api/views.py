@@ -15,10 +15,10 @@ from .serializers import CodesSerializer, FileUploadSerializer #serializers for 
 @api_view(['GET'])
 def getRoutes(request):
     routes = [
-        "codes/ : GET All Codes in DB and POST as well",
-        "codes/<int:id>/ : GET Detailed View of ICD Code using ID and UPDATE where needed",
-        "codes/<int:id>/delete : GET Detailed View of ICD Code using ID and DELETE where needed",
-        "codes/fileupload : POST Codes through a CSV file upload",
+        "api/codes/ : GET All Codes in DB and POST as well",
+        "api/codes/<int:id>/ : GET Detailed View of ICD Code using ID and UPDATE where needed",
+        "api/codes/<int:id>/delete : GET Detailed View of ICD Code using ID and DELETE where needed",
+        "api/codes/fileupload : POST Codes through a CSV file upload",
     ]
     return Response(routes)
 
