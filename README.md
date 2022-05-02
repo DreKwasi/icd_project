@@ -45,7 +45,7 @@ python manage.py migrate
 Getting the postgres shell started
 
 ```shell
-docker-compose exec psql-U postgres
+docker-compose exec db psql-U postgres
 ```
 
 ## Testing
