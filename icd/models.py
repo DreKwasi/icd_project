@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 # Model Objects to interact through ORM with the Db
