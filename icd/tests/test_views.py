@@ -30,7 +30,7 @@ class TestViews(TestSetUP):
         response = self.createCode()
         res = self.client.get(reverse('getCode', kwargs={'id':response.data['id']}))
         db_data = Codes.objects.filter(id=res.data['id']).values()[0]
-        self.assertEqual(db_data, res.data)
+        self.assertEqual(db_data['id'], res.data['id'])
         self.assertEqual(res.status_code, 200)
     
     # Method to test update views

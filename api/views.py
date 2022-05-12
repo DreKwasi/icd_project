@@ -60,7 +60,6 @@ class CodesDeleteAPIView(generics.RetrieveAPIView, mixins.DestroyModelMixin):
 # View for Uploading Large Rows of ICD Codes in the Db
 class CodesUploadAPIView(generics.CreateAPIView):
     serializer_class = FileUploadSerializer
-    pagination_class = CustomPagination
 
     # overiding the default post method to allow for file uploads
     def post(self, request, *args, **kwargs):
@@ -72,7 +71,7 @@ class CodesUploadAPIView(generics.CreateAPIView):
         df = pd.read_csv(file)
         df = df.replace({np.nan:None})
         df = df.values
-
+        
         # creating a bulkcreatemanager object to handle uploads in chunks
         bulk_mgr = BulkCreateManager(chunk_size=500)
         for row in df:
@@ -90,7 +89,7 @@ class CodesUploadAPIView(generics.CreateAPIView):
         email = EmailMessage(
                 "Upload of ICD Codes",
                 f"Thank You for Using the ICD REST Api \nUpload Completed for {df.shape[0]} ICD Codes \
-                     Vist http://127.0.0.1:8000/api/codes/ to View or Add Additional Codes",
+                    Visit http://127.0.0.1:8000/api/codes/ to View or Add Additional Codes",
                 'mpharmatakehome@gmail.com',
                 ['andrewsboateng137@gmail.com', 'mpharmatakehome@gmail.com']
             )
