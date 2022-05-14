@@ -70,20 +70,10 @@ class CodesUploadAPIView(generics.CreateAPIView):
         # using pandas to read file into dataframes and then vectorizing to numpy for speed
         df = pd.read_csv(file)
         df = df.replace({np.nan:None})
-        df = df.values
-        
-        # creating a bulkcreatemanager object to handle uploads in chunks
-        bulk_mgr = BulkCreateManager(chunk_size=500)
-        for row in df:
-            bulk_mgr.add(Codes(
-                                category_codes = row[0],
-                                diagnosis_codes = row[1],
-                                full_code = row[2],
-                                abbrev_description = row[3],
-                                full_description = row[4],
-                                category_title = row[5],
-                            ))
-        bulk_mgr.done()
+        np_df = np.array(df)
+
+        # Creating all rows from the df
+        Codes.objects.bulk_create(np_df)
 
         # Sending an email using a dummy gmail account to a specified account
         email = EmailMessage(
