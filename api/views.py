@@ -6,7 +6,6 @@ from rest_framework.decorators import api_view #decorator to handle API views on
 from rest_framework.pagination import PageNumberPagination #For customizing Pagination with affecting the whole app
 from rest_framework.response import Response #For Handling responses of Views
 from django.core.mail import EmailMessage #For sending emails via SMTP
-from icd.helper import BulkCreateManager #Helper Class for handling bulk inserts of data
 
 from .serializers import CodesSerializer, FileUploadSerializer #serializers for exporting and importing db data
 
@@ -73,17 +72,18 @@ class CodesUploadAPIView(generics.CreateAPIView):
         np_df = np.array(df)
 
         # Creating all rows from the df
-        Codes.objects.bulk_create(np_df)
+        Codes.objects.bulk_create(np_df.all())
 
         # Sending an email using a dummy gmail account to a specified account
-        email = EmailMessage(
-                "Upload of ICD Codes",
-                f"Thank You for Using the ICD REST Api \nUpload Completed for {df.shape[0]} ICD Codes \
-                    Visit http://127.0.0.1:8000/api/codes/ to View or Add Additional Codes",
-                'mpharmatakehome@gmail.com',
-                ['andrewsboateng137@gmail.com', 'mpharmatakehome@gmail.com']
-            )
-        email.send()
-
+        # email = EmailMessage(
+        #         "Upload of ICD Codes",
+        #         f"Thank You for Using the ICD REST Api \nUpload Completed for {df.shape[0]} ICD Codes \
+        #             Visit http://127.0.0.1:8000/api/codes/ to View or Add Additional Codes",
+        #         'mpharmatakehome@gmail.com',
+        #         ['andrewsboateng137@gmail.com', 'mpharmatakehome@gmail.com']
+        #     )
+        # email.send()
+        
+        # returning a success message when an upload is completed
         return Response({"status": "success"},
                         status.HTTP_201_CREATED)
